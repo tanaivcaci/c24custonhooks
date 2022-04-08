@@ -19,3 +19,18 @@ export const UserName = styled.p`
     font-size: 20px;
     color: crimson;
 `
+
+export const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+`;
+
+export const Paragraph = styled.p`
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    &:hover{
+        transform: scale(1.2);
+        color: crimson;
+    }
+`;

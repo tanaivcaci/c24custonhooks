@@ -5,14 +5,15 @@ import { searchIcon } from "../../Assets/Externals";
 import { HeaderContainer, Title, InputArea, SearchB } from "./Header.style";
 
 const Header = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(""); //capturo valor del input
   const navigate = useNavigate();
   const handlerSubmit = (e) => {
     e.preventDefault();
     const inputName = value.toLocaleLowerCase().trim();
-    navigate(`/users/${inputName}`);
+    if (value.length > 0 && !value.includes(" ")) {
+      navigate(`/users/${inputName}`);
+    }
   };
-
   return (
     <HeaderContainer>
       <Title>Welcome to HubBook</Title>

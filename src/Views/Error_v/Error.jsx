@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ErrorContainer, Title, generalStyles, anchor } from "./Error.style";
 
 const Error = () => {
@@ -13,9 +14,9 @@ const Error = () => {
         </li>
         <li style={{ textAlign: "left" }}>Do not use space.</li>
       </ol>
-      <a href='#' style={anchor}>
+      <Link to='/' style={anchor}>
         Back to Home Page
-      </a>
+      </Link>
     </ErrorContainer>
   );
 };
