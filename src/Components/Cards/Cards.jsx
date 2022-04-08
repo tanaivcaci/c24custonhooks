@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   CardContainer,
   AvatarContainer,
@@ -8,15 +9,16 @@ import {
   More,
 } from "./Cards.styles";
 
-const Cards = () => {
+const Cards = ({ id, name, avatar }) => {
+  const navigate = useNavigate();
   return (
     <CardContainer>
       <AvatarContainer>
-        <Avatar src='#' alt='user_avatar' />
+        <Avatar src={avatar} alt='user_avatar' />
       </AvatarContainer>
       <TextContainer>
-        <Name>name:</Name>
-        <More>See More</More>
+        <Name name={name.length}>{name}</Name>
+        <More onClick={() => navigate(`/users/${name}`)}>See More</More>
       </TextContainer>
     </CardContainer>
   );

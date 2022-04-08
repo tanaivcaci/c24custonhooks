@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { searchIcon } from "../../Assets/Externals";
 
 import { HeaderContainer, Title, InputArea, SearchB } from "./Header.style";
 
 const Header = () => {
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    const inputName = value.toLocaleLowerCase().trim();
+    navigate(`/users/${inputName}`);
+  };
+
   return (
     <HeaderContainer>
       <Title>Welcome to HubBook</Title>
-      <form>
-        <InputArea placeholder='Input Username' />
+      <form onSubmit={(e) => handlerSubmit(e)}>
+        <InputArea
+          placeholder='Input Username'
+          onChange={(e) => setValue(e.target.value)}
+        />
         <SearchB type='submit'>
           {" "}
           <i className={searchIcon}></i>{" "}
